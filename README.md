@@ -9,6 +9,9 @@ As a team of three, working together to create a full Java baseed CRUD applicati
 - Designed for student, teacher, grade and emergency contact information
 - Capable of all CRUD Operations!
 
+### Libraries
+This project request the platform independant version of JDBC Which can be downloaded [Here](https://dev.mysql.com/downloads/connector/j/)
+
 # Database Structure
 ![](https://i.ibb.co/0GCg9MR/Screen-Shot-2021-08-28-at-6-41-50-AM.png)
 
