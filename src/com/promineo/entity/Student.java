@@ -1,9 +1,6 @@
 package com.promineo.entity;
 
-import java.util.List;
-
-public class Student {
-    //TODO Create variables, constructor and get/set methods
+public class Student { //Entire Class Authored By Nathan Moore
 	
 	private int student_id;
 	private int teacher_id;
@@ -21,9 +18,10 @@ public class Student {
 		
 	}
 	
-	public Student(String first_name) {
+	public Student(String first_name, String last_name) {
 		
 		this.setFirst_name(first_name);
+		this.setLast_name(last_name);
 	}
 
 	public int getStudent_id() {

@@ -1,9 +1,6 @@
 package com.promineo.entity;
 
-import java.util.List;
-
-public class JobTitle {
-    //TODO Create variables, constructor and get/set methods
+public class JobTitle { //Entire Class Authored By Nathan Moore
 	
 	private int job_id;
 	private int teacher_id;

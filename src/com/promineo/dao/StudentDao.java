@@ -10,7 +10,7 @@ import java.util.List;
 import com.promineo.DBConnection;
 import com.promineo.entity.Student;
 
-public class StudentDao {
+public class StudentDao { //Entire Class Authored By Nathan Moore
 
 	private Connection connection;
 	private final String GET_STUDENTS_QUERY = "SELECT * FROM student WHERE teacher_id = ?";
@@ -38,7 +38,7 @@ public class StudentDao {
     	List<Student> students = new ArrayList<Student>();
     	
     	while (rs.next()) {
-    		students.add(new Student(rs.getString(3)));
+    		students.add(new Student(rs.getString(3), rs.getString(4)));
     	}
     	
     	return students;

@@ -4,11 +4,12 @@ import java.sql.SQLException;
 
 import com.promineo.navigation.Menu;
 
-public class Start {
+public class Start {//Author Ryan Leyva
 
-    public static void main(String[] args) throws SQLException{
-    	Menu menu = new Menu();
-    	menu.start();
+    public static void main(String[] args) throws SQLException {
+        Menu menu = new Menu();
+        menu.start();
+
     }
 
 }

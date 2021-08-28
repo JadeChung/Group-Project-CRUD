@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection {//Author Nathan Moore, Ryan Leyva, Jade Chung
     
-    private final static String URL = "jdbc:mysql://localhost:3306/Elementary_db";
+    private final static String URL = "jdbc:mysql://localhost:3306/elementary_db";
     private final static String USERNAME = "root";
     private final static String PASSWORD = "Hugooreo1210!";
+
     public static Connection connection;
     public static DBConnection instance;
     
