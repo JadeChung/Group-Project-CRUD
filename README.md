@@ -1,5 +1,5 @@
-# Middle School Database Manager
-A simple text-based MySql database manager for a middle school in the United States.
+# Elementary School Database Manager
+A simple text-based MySql database manager for an elementary school in the United States.
 
 # Description
 As a team of three, working together to create a full Java baseed CRUD application for a MySQL database.
