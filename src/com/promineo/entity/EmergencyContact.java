@@ -1,6 +1,6 @@
 package com.promineo.entity;
 
-public class EmergencyContact {
+public class EmergencyContact {//Author Ryan Leyva
 
     private int id;
     private int studentId;
@@ -75,5 +75,4 @@ public class EmergencyContact {
                 "Email: " + this.getEmail();
     }
 
-    //TODO Create variables, constructor and get/set methods
 }

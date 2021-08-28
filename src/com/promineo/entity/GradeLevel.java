@@ -1,7 +1,7 @@
 package com.promineo.entity;
 
-public class GradeLevel {
-    //TODO Create variables, constructor and get/set methods
+public class GradeLevel {//Author Ryan Leyva
+
     private int id; //grade_id
     private int studentId; //student_id
     private int teacherId; //teacher_id
