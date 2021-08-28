@@ -14,14 +14,13 @@ public class Menu {
     EmergencyContactDao emergencyContactDao;
     GradeLevelDao gradeLevelDao;
 
-    public Menu(){
+    public Menu(){//Author Ryan Leyva
         scanner = new Scanner(System.in);
         emergencyContactDao = new EmergencyContactDao();
         gradeLevelDao = new GradeLevelDao();
     }
 
-    public void start(){
-        //TODO Menu
+    public void start(){//Author Ryan Leyva
         String response = "";
         try{
 
@@ -55,7 +54,7 @@ public class Menu {
 
     }
 
-    private void printMainMenu(){
+    private void printMainMenu(){//Author Ryan Leyva
         System.out.println("Please select an option:");
         System.out.println("-1. " + "Exit");
         System.out.println("1. " + "Manage Students");
@@ -65,7 +64,7 @@ public class Menu {
         System.out.println("5. " + "Manage Job Titles");
     }
 
-    private void manageStudents(){
+    private void manageStudents(){//Author Ryan Leyva
         String response = "";
         try{
 
@@ -92,7 +91,7 @@ public class Menu {
         }
     }
 
-    private void printStudentMenu(){
+    private void printStudentMenu(){ //Author Ryan Leyva
         System.out.println("Please select an option:");
         System.out.println("-1. " + "Back");
         System.out.println("1. " + "Create student");
@@ -103,7 +102,7 @@ public class Menu {
 
 
 
-    private void manageEmergencyContacts(){
+    private void manageEmergencyContacts(){ //Author Ryan Leyva
 
         String response = "";
         try{
@@ -135,7 +134,7 @@ public class Menu {
 
     }
 
-    private void printEmergencyContactsMenu(){
+    private void printEmergencyContactsMenu(){ //Author Ryan Leyva
         System.out.println("Please select an option:");
         System.out.println("-1. " + "Back");
         System.out.println("1. " + "Create emergency contact");
@@ -144,7 +143,7 @@ public class Menu {
         System.out.println("4. " + "Delete emergency contact");
     }
 
-    private void manageTeachers(){
+    private void manageTeachers(){ //Author Ryan Leyva
         String response = "";
         try{
 
@@ -169,7 +168,7 @@ public class Menu {
         }
     }
 
-    private void printTeachersMenu(){
+    private void printTeachersMenu(){ //Author Ryan Leyva
         System.out.println("Please select an option:");
         System.out.println("-1. " + "Back");
         System.out.println("1. " + "Create teacher");
@@ -177,7 +176,7 @@ public class Menu {
         System.out.println("3. " + "Update teacher");
     }
 
-    private void manageJobTitles(){
+    private void manageJobTitles(){ //Author Ryan Leyva
         String response = "";
         try{
 
@@ -204,7 +203,7 @@ public class Menu {
         }
     }
 
-    private void printJobTitlesMenu(){
+    private void printJobTitlesMenu(){ //Author Ryan Leyva
         System.out.println("Please select an option:");
         System.out.println("-1. " + "Back");
         System.out.println("1. " + "Create job titles");
@@ -213,7 +212,7 @@ public class Menu {
         System.out.println("4. " + "Delete job titles");
     }
 
-    private void manageGradeLevels(){
+    private void manageGradeLevels(){ //Author Ryan Leyva
         String response = "";
         try{
 
@@ -243,7 +242,7 @@ public class Menu {
         }
     }
 
-    private void printGradeLevelsMenu(){
+    private void printGradeLevelsMenu(){ //Author Ryan Leyva
         System.out.println("Please select an option:");
         System.out.println("-1. " + "Exit");
         System.out.println("1. " + "Create grade level");
@@ -253,7 +252,7 @@ public class Menu {
     }
 
 
-    private void createEmergencyContact() throws SQLException {
+    private void createEmergencyContact() throws SQLException { //Author Ryan Leyva
         int studentId;
         String firstName;
         String lastName;
@@ -276,7 +275,7 @@ public class Menu {
 
 
 
-    private void readEmergencyContact() throws SQLException {
+    private void readEmergencyContact() throws SQLException { //Author Ryan Leyva
         int id;
         printRequestMessage("id", "emergency Contact");
         String temp = scanner.nextLine();
@@ -287,7 +286,7 @@ public class Menu {
         }
     }
 
-    private void updateEmergencyContact() throws SQLException {
+    private void updateEmergencyContact() throws SQLException { //Author Ryan Leyva
         int id;
         printRequestMessage("id", "emergency Contact");
         String temp = scanner.nextLine();
@@ -317,7 +316,7 @@ public class Menu {
 
     }
 
-    private void deleteEmergencyContact() throws SQLException {
+    private void deleteEmergencyContact() throws SQLException { //Author Ryan Leyva
         int id;
         printRequestMessage("id", "emergency Contact");
         String temp = scanner.nextLine();
@@ -325,7 +324,7 @@ public class Menu {
         emergencyContactDao.deleteEmergencyContactById(id);
     }
 
-    private void createGradeLevel() throws SQLException {
+    private void createGradeLevel() throws SQLException { //Author Ryan Leyva
         int studentId;
         int teacherId;
         int gradeLevel;
@@ -342,7 +341,7 @@ public class Menu {
 
     }
 
-    private void readGradeLevel() throws SQLException {
+    private void readGradeLevel() throws SQLException { //Author Ryan Leyva
         int id;
         printRequestMessage("id", "grade level record");
         String temp = scanner.nextLine();
@@ -351,7 +350,7 @@ public class Menu {
         System.out.println(gradeLevel.toString());
     }
 
-    private void updateGradeLevel() throws SQLException {
+    private void updateGradeLevel() throws SQLException { //Author Ryan Leyva
         int id;
         printRequestMessage("id", "grade level to update");
         String temp = scanner.nextLine();
@@ -374,7 +373,7 @@ public class Menu {
         gradeLevelDao.updateGradeLevelById(id, studentId, teacherId, gradeLevel);
     }
 
-    private void deleteGradeLevel() throws SQLException {
+    private void deleteGradeLevel() throws SQLException { //Author Ryan Leyva
         int id;
         printRequestMessage("id", "grade level record");
         String temp = scanner.nextLine();

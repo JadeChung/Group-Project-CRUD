@@ -1,7 +1,6 @@
 package com.promineo.dao;
 
 import com.promineo.DBConnection;
-import com.promineo.entity.EmergencyContact;
 import com.promineo.entity.GradeLevel;
 
 import java.sql.Connection;
@@ -9,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GradeLevelDao {
+public class GradeLevelDao {//Author Ryan Leyva
 
     //TODO SQL statements
     private Connection connection;
