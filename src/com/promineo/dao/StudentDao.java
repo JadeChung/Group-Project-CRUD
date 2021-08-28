@@ -38,14 +38,10 @@ public class StudentDao {
     	List<Student> students = new ArrayList<Student>();
     	
     	while (rs.next()) {
-    		students.add(populateStudents(rs.getString(3)));
+    		students.add(new Student(rs.getString(3)));
     	}
     	
     	return students;
-    }
-
-    private Student populateStudents(String first_name) {
-    	return new Student(first_name);
     }
 
 	public void updateStudentById(String first_name, String last_name, int id) throws SQLException{

@@ -20,13 +20,13 @@ public class JobTitle {
 		this.setEnd_date(end_date);
 	}
 	
-	public JobTitle(int grade_taught) {
+	public JobTitle(int job_id, int grade_taught) {
+		this.setJob_id(job_id);
 		this.setGrade_taught(grade_taught);
 	}
-
-	public JobTitle(int teacher_id, String start_date) {
-		this.setTeacher_id(teacher_id);
-		this.setStart_date(start_date);
+	
+	public JobTitle(int grade_taught) {
+		this.setGrade_taught(grade_taught);
 	}
 
 	

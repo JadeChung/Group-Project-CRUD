@@ -12,33 +12,36 @@ import com.promineo.entity.Student;
 
 public class Menu {
 
+	Scanner scanner;
 	private JobTitleDao jobtitleDao = new JobTitleDao();
 	private StudentDao studentDao = new StudentDao();
-    Scanner scanner;
+    
     private List<String> options = Arrays.asList(
-    		"Display Grade Taught", 
+    		"Read Job Title", 
     		"Create Job Title", 
     		"Delete Job Title",
     		"Display Students",
     		"Create New Student",
     		"Delete Student",
     		"Update Student");
+    
     public Menu(){
         scanner = new Scanner(System.in);
     }
 
-    public void start() throws SQLException{
+    public void start() throws SQLException {
         //TODO Menu
         String response = "";
         do{
         	printMenu();
             response = scanner.nextLine();
+             
             
             if (response.equals("1")) {
-            	displaygradeTaught();
+            	readJobTitle();
             } else if (response.equals("2")) {
             	createJobTitle();
-            	System.out.println("Entry Successfully Deleted");
+            	System.out.println("Entry Successfully Created");
             } else if (response.equals("3")) {
             	deleteJobTitle();
             	System.out.println("Entry Successfully Deleted");
@@ -50,7 +53,7 @@ public class Menu {
             	deleteStudent();
             } else if (response.equals("7")) {
             	updateStudent();
-            }
+            } 
             
             System.out.println("Press enter to continue....");
             scanner.nextLine();
@@ -111,8 +114,12 @@ public class Menu {
         jobtitleDao.createJobTitle(teacher_id, grade_taught, start_date, end_date);
     }
 
-    private void readJobTitle(){
-        //TODO
+    private void readJobTitle() throws SQLException{
+        System.out.println("Enter Job ID: ");
+        int job_id = Integer.parseInt(scanner.nextLine());
+        JobTitle job = jobtitleDao.readJobTitleById(job_id);
+        System.out.println("Grade Taught: " + job.getGrade_taught());
+       
     }
 
 
@@ -122,16 +129,7 @@ public class Menu {
         jobtitleDao.deleteJobTitleById(id);
     }
     
-    private void displaygradeTaught() throws SQLException {
-    	System.out.println("Enter teacher id: ");
-    	int teacher_id = Integer.parseInt(scanner.nextLine());
-    	System.out.println("Enter start_date: ");
-    	String start_date = scanner.nextLine();
-    	JobTitle jobTitle = jobtitleDao.getjobTitle(teacher_id, start_date);
-    	System.out.println(jobTitle);
-    }
-
-
+    
     private void createStudent() throws SQLException{
         System.out.println("Enter Teacher ID: ");
         int teacher_id = Integer.parseInt(scanner.nextLine());
@@ -150,7 +148,9 @@ public class Menu {
         System.out.println("Enter Teacher ID: ");
         int teacher_id = Integer.parseInt(scanner.nextLine());
         List<Student> student = studentDao.readStudentsByTeacherId(teacher_id);
-        System.out.print(student);
+        for (Student students : student) {
+        	System.out.println(students.getFirst_name());
+        }
     }
 
     private void updateStudent() throws SQLException{
