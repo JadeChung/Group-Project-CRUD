@@ -6,12 +6,12 @@ public class Student {
     //TODO Create variables, constructor and get/set methods
 	
 	private int student_id;
-	private List<Teacher> teacher_id;
+	private int teacher_id;
 	private String first_name;
 	private String last_name;
 	private String birth_date;
 	
-	public Student(int student_id, List<Teacher> teacher_id, String first_name, String last_name, String birth_date) {
+	public Student(int student_id, int teacher_id, String first_name, String last_name, String birth_date) {
 		
 		this.setStudent_id(student_id);
 		this.setTeacher_id(teacher_id);
@@ -19,6 +19,11 @@ public class Student {
 		this.setLast_name(last_name);
 		this.setBirth_date(birth_date);
 		
+	}
+	
+	public Student(String first_name) {
+		
+		this.setFirst_name(first_name);
 	}
 
 	public int getStudent_id() {
@@ -29,11 +34,11 @@ public class Student {
 		this.student_id = student_id;
 	}
 
-	public List<Teacher> getTeacher_id() {
+	public int getTeacher_id() {
 		return teacher_id;
 	}
 
-	public void setTeacher_id(List<Teacher> teacher_id) {
+	public void setTeacher_id(int teacher_id) {
 		this.teacher_id = teacher_id;
 	}
 

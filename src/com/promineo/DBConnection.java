@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DBConnection {
     
-    private final static String URL = "jdbc:mysql://localhost:3306/albums";
+    private final static String URL = "jdbc:mysql://localhost:3306/Elementary_db";
     private final static String USERNAME = "root";
-    private final static String PASSWORD = "pass";
+    private final static String PASSWORD = "Hugooreo1210!";
     public static Connection connection;
     public static DBConnection instance;
     

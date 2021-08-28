@@ -6,12 +6,12 @@ public class JobTitle {
     //TODO Create variables, constructor and get/set methods
 	
 	private int job_id;
-	private List<Teacher> teacher_id;
+	private int teacher_id;
 	private int grade_taught;
 	private String start_date;
 	private String end_date;
 	
-	public JobTitle(int job_id, List<Teacher> teacher_id, int grade_taught, String start_date, String end_date) {
+	public JobTitle(int job_id, int teacher_id, int grade_taught, String start_date, String end_date) {
 		
 		this.setJob_id(job_id);
 		this.setTeacher_id(teacher_id);
@@ -19,7 +19,17 @@ public class JobTitle {
 		this.setStart_date(start_date);
 		this.setEnd_date(end_date);
 	}
+	
+	public JobTitle(int grade_taught) {
+		this.setGrade_taught(grade_taught);
+	}
 
+	public JobTitle(int teacher_id, String start_date) {
+		this.setTeacher_id(teacher_id);
+		this.setStart_date(start_date);
+	}
+
+	
 	public int getJob_id() {
 		return job_id;
 	}
@@ -28,11 +38,11 @@ public class JobTitle {
 		this.job_id = job_id;
 	}
 
-	public List<Teacher> getTeacher_id() {
+	public int getTeacher_id() {
 		return teacher_id;
 	}
 
-	public void setTeacher_id(List<Teacher> teacher_id) {
+	public void setTeacher_id(int teacher_id) {
 		this.teacher_id = teacher_id;
 	}
 
