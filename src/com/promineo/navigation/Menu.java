@@ -183,6 +183,7 @@ public class Menu {
                         break;
                     case 2:
                         this.readTeacher();
+                        break;
                     case 3:
                         this.updateTeacher();
 

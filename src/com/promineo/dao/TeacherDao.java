@@ -14,7 +14,7 @@ public class TeacherDao {
 	private Connection connection;
 	private final String CREATE_NEW_TEACHER = "INSERT INTO teacher(first_name, last_name, room_number) VALUES(?, ?, ?)";
 	private final String READ_TEACHER = "SELECT * FROM teacher WHERE teacher_id = ?";
-	private final String UPDATE_TEACHER_BY_ID = "UPDATE teacher SET teacher_id = ?, first_name = ?, last_name = ?, room_number = ? WHERE teacher_id = ?";
+	private final String UPDATE_TEACHER_BY_ID = "UPDATE teacher SET first_name = ?, last_name = ?, room_number = ? WHERE teacher_id = ?";
 
 	public TeacherDao() {
 		this.connection = DBConnection.getConnection();
@@ -45,10 +45,10 @@ public class TeacherDao {
 
 	public void updateTeacher(int teacherId, String firstName, String lastName, String roomNumber) throws SQLException {
 		PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TEACHER_BY_ID);
-		preparedStatement.setInt(1, teacherId);
-		preparedStatement.setString(2, firstName);
-		preparedStatement.setString(3, lastName);
-		preparedStatement.setString(4, roomNumber);
+		preparedStatement.setInt(4, teacherId);
+		preparedStatement.setString(1, firstName);
+		preparedStatement.setString(2, lastName);
+		preparedStatement.setString(3, roomNumber);
 		preparedStatement.executeUpdate();
 		System.out.println("Teacher information updated!");
 	}
