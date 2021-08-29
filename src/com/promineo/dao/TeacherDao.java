@@ -12,7 +12,7 @@ import com.promineo.entity.Teacher;
 public class TeacherDao {
 
 	private Connection connection;
-	private final String CREATE_NEW_TEACHER = "INSERT INTO teacher(teacer_id, first_name, last_name, room_number) VALUES(?, ?, ?, ?)";
+	private final String CREATE_NEW_TEACHER = "INSERT INTO teacher(first_name, last_name, room_number) VALUES(?, ?, ?)";
 	private final String READ_TEACHER = "SELECT * FROM teacher WHERE teacher_id = ?";
 	private final String UPDATE_TEACHER_BY_ID = "UPDATE teacher SET teacher_id = ?, first_name = ?, last_name = ?, room_number = ? WHERE teacher_id = ?";
 
@@ -21,12 +21,11 @@ public class TeacherDao {
 
 	}
 
-	public void createTeacher(int teacherId, String firstName, String lastName, String roomNumber) throws SQLException {
+	public void createTeacher(String firstName, String lastName, String roomNumber) throws SQLException {
 		PreparedStatement preparedstatement = connection.prepareStatement(CREATE_NEW_TEACHER);
-		preparedstatement.setInt(1, teacherId);
-		preparedstatement.setString(2, firstName);
-		preparedstatement.setString(3, lastName);
-		preparedstatement.setString(4, roomNumber);
+		preparedstatement.setString(1, firstName);
+		preparedstatement.setString(2, lastName);
+		preparedstatement.setString(3, roomNumber);
 		preparedstatement.executeUpdate();
 		System.out.println("Teacher added to database for 2020-2021 school year!");
 	}

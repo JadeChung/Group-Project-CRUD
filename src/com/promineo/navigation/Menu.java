@@ -5,16 +5,13 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-import com.promineo.dao.EmergencyContactDao;
-import com.promineo.dao.GradeLevelDao;
+import com.promineo.dao.*;
 import com.promineo.entity.EmergencyContact;
 import com.promineo.entity.GradeLevel;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.promineo.dao.JobTitleDao;
-import com.promineo.dao.StudentDao;
 import com.promineo.entity.JobTitle;
 import com.promineo.entity.Student;
 
@@ -26,12 +23,14 @@ public class Menu {
 	private StudentDao studentDao = new StudentDao();
     EmergencyContactDao emergencyContactDao;
     GradeLevelDao gradeLevelDao;
+    private TeacherDao teacherDao;
 
     public Menu(){//Author Ryan Leyva
 
         scanner = new Scanner(System.in);
         emergencyContactDao = new EmergencyContactDao();
         gradeLevelDao = new GradeLevelDao();
+        teacherDao = new TeacherDao();
     }
     
     		
@@ -483,8 +482,14 @@ public class Menu {
         System.out.println("Successfully Deleted");
     }
 
-    private void createTeacher(){
-        //TODO
+    private void createTeacher() throws SQLException {
+        this.printRequestMessage("first name", "teacher");
+        String firstName = scanner.nextLine();
+        this.printRequestMessage("last name", "teacher");
+        String lastName = scanner.nextLine();
+        this.printRequestMessage("room number", "teacher");
+        String roomNumber = scanner.nextLine();
+        teacherDao.createTeacher(firstName, lastName, roomNumber);
     }
 
     private void readTeacher(){
