@@ -1,7 +1,6 @@
 package com.promineo.entity;
 
-public class JobTitle {
-    //TODO Create variables, constructor and get/set methods
+public class JobTitle { //Entire Class Authored By Nathan Moore
 	
 	private int job_id;
 	private int teacher_id;
@@ -11,13 +10,23 @@ public class JobTitle {
 	
 	public JobTitle(int job_id, int teacher_id, int grade_taught, String start_date, String end_date) {
 		
-	this.setJob_id(job_id);
-	this.setTeacher_id(teacher_id);
-	this.setGrade_taught(grade_taught);
-	this.setStart_date(start_date);
-	this.setEnd_date(end_date);
+		this.setJob_id(job_id);
+		this.setTeacher_id(teacher_id);
+		this.setGrade_taught(grade_taught);
+		this.setStart_date(start_date);
+		this.setEnd_date(end_date);
+	}
+	
+	public JobTitle(int job_id, int grade_taught) {
+		this.setJob_id(job_id);
+		this.setGrade_taught(grade_taught);
+	}
+	
+	public JobTitle(int grade_taught) {
+		this.setGrade_taught(grade_taught);
 	}
 
+	
 	public int getJob_id() {
 		return job_id;
 	}

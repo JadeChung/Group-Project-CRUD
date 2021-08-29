@@ -1,7 +1,6 @@
 package com.promineo;
 
 import com.promineo.navigation.Menu;
-
 import java.sql.SQLException;
 
 public class Start {//Author Ryan Leyva
