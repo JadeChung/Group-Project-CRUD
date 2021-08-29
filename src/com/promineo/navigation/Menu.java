@@ -15,8 +15,10 @@ import java.util.Scanner;
 
 import com.promineo.dao.JobTitleDao;
 import com.promineo.dao.StudentDao;
+import com.promineo.dao.TeacherDao;
 import com.promineo.entity.JobTitle;
 import com.promineo.entity.Student;
+import com.promineo.entity.Teacher;
 
 public class Menu {
 
@@ -24,6 +26,7 @@ public class Menu {
 	Scanner scanner;
 	private JobTitleDao jobtitleDao = new JobTitleDao();
 	private StudentDao studentDao = new StudentDao();
+	private TeacherDao teacherDao = new TeacherDao();
     EmergencyContactDao emergencyContactDao;
     GradeLevelDao gradeLevelDao;
 
@@ -487,8 +490,14 @@ public class Menu {
         //TODO
     }
 
-    private void readTeacher(){
-        //TODO
+    private void readTeacher() throws SQLException{
+        System.out.println("Enter the Teacher ID: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        Teacher teacher = teacherDao.readTeacherByTeacherId(id);
+        System.out.println("Teacher ID: " + teacher.getTeacherId() + " First Name: " + teacher.getFirstName() + " Last Name: " 
+        + teacher.getLastName() + " Room Number: " + teacher.getRoomNumber());
+        
+        
     }
 
     private void updateTeacher(){
