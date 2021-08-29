@@ -1,12 +1,15 @@
 package com.promineo.navigation;
 
+
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
+
 import com.promineo.dao.EmergencyContactDao;
 import com.promineo.dao.GradeLevelDao;
 import com.promineo.entity.EmergencyContact;
 import com.promineo.entity.GradeLevel;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -16,6 +19,7 @@ import com.promineo.entity.JobTitle;
 import com.promineo.entity.Student;
 
 public class Menu {
+
 
 	Scanner scanner;
 	private JobTitleDao jobtitleDao = new JobTitleDao();
@@ -76,11 +80,13 @@ public class Menu {
     }
 
     private void manageStudents(){//Author Ryan Leyva
+
         String response = "";
         try{
 
             do{
                 printStudentMenu();
+
                 response = scanner.nextLine();
                 int i = Integer.parseInt(response);
                 switch(i){
@@ -95,6 +101,7 @@ public class Menu {
                         break;
                     case 4:
                         this.deleteStudent();
+
                 }
 
             }while(!response.equals("-1"));
@@ -158,11 +165,13 @@ public class Menu {
     }
 
     private void manageTeachers(){ //Author Ryan Leyva
+
         String response = "";
         try{
 
             do{
                 printTeachersMenu();
+
                 response = scanner.nextLine();
                 int i = Integer.parseInt(response);
                 switch(i){
@@ -173,6 +182,7 @@ public class Menu {
                         this.readTeacher();
                     case 3:
                         this.updateTeacher();
+
                 }
 
             }while(!response.equals("-1"));
@@ -191,11 +201,13 @@ public class Menu {
     }
 
     private void manageJobTitles(){ //Author Ryan Leyva
+
         String response = "";
         try{
 
             do{
             	printJobTitlesMenu();
+
                 response = scanner.nextLine();
                 int i = Integer.parseInt(response);
                 switch(i){
@@ -207,6 +219,7 @@ public class Menu {
                         break;
                     case 3:
                         this.deleteJobTitle();
+
                 }
 
             }while(!response.equals("-1"));
@@ -222,6 +235,49 @@ public class Menu {
         System.out.println("1. " + "Create job titles");
         System.out.println("2. " + "Read job titles");
         System.out.println("3. " + "Delete job titles");
+    }
+
+    private void manageGradeLevels(){ //Author Ryan Leyva
+
+        String response = "";
+        try{
+
+            do{
+                printGradeLevelsMenu();
+
+                response = scanner.nextLine();
+                int i = Integer.parseInt(response);
+                switch(i){
+                    case 1:
+                        this.createGradeLevel();
+                        break;
+                    case 2:
+                        this.readGradeLevel();
+                        break;
+                    case 3:
+                        this.updateGradeLevel();
+                        break;
+                    case 4:
+                        this.deleteGradeLevel();
+                        break;
+
+                }
+
+            }while(!response.equals("-1"));
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    private void printJobTitlesMenu(){ //Author Ryan Leyva
+        System.out.println("Please select an option:");
+        System.out.println("-1. " + "Back");
+        System.out.println("1. " + "Create job titles");
+        System.out.println("2. " + "Read job titles");
+        System.out.println("3. " + "Update job titles");
+        System.out.println("4. " + "Delete job titles");
     }
 
     private void manageGradeLevels(){ //Author Ryan Leyva
@@ -254,6 +310,7 @@ public class Menu {
         }
     }
 
+
     private void printGradeLevelsMenu(){ //Author Ryan Leyva
         System.out.println("Please select an option:");
         System.out.println("-1. " + "Exit");
@@ -261,6 +318,138 @@ public class Menu {
         System.out.println("2. " + "Read grade level");
         System.out.println("3. " + "Update grade level");
         System.out.println("4. " + "Delete grade level");
+
+    }
+
+
+    private void createEmergencyContact() throws SQLException { //Author Ryan Leyva
+        int studentId;
+        String firstName;
+        String lastName;
+        String phoneNumber;
+        String email;
+        printRequestMessage("valid student Id", "emergency Contact");
+        String temp = scanner.nextLine();
+        studentId= Integer.parseInt(temp);
+        printRequestMessage("first name", "emergency Contact");
+        firstName = scanner.nextLine();
+        printRequestMessage("last name", "emergency Contact");
+        lastName = scanner.nextLine();
+        printRequestMessage("phone number", "emergency Contact");
+        System.out.println("Format: (555) 555 5555");
+        phoneNumber = scanner.nextLine();
+        printRequestMessage("email address", "emergency Contact");
+        email = scanner.nextLine();
+        emergencyContactDao.createEmergencyContact(studentId, firstName, lastName, phoneNumber, email);
+    }
+
+
+
+    private void readEmergencyContact() throws SQLException { //Author Ryan Leyva
+        int id;
+        printRequestMessage("id", "emergency Contact");
+        String temp = scanner.nextLine();
+        id= Integer.parseInt(temp);
+        EmergencyContact contact = emergencyContactDao.readEmergencyContactById(id);
+        if(contact != null){
+            System.out.println(contact.toString());
+        }
+    }
+
+    private void updateEmergencyContact() throws SQLException { //Author Ryan Leyva
+        int id;
+        printRequestMessage("id", "emergency Contact");
+        String temp = scanner.nextLine();
+        id= Integer.parseInt(temp);
+        EmergencyContact contact = emergencyContactDao.readEmergencyContactById(id);
+        System.out.println("Current values:");
+        System.out.println(contact.toString());
+
+        int studentId;
+        String firstName;
+        String lastName;
+        String phoneNumber;
+        String email;
+        printRequestMessage("valid student Id", "emergency Contact");
+        String temp1 = scanner.nextLine();
+        studentId= Integer.parseInt(temp1);
+        printRequestMessage("first name", "emergency Contact");
+        firstName = scanner.nextLine();
+        printRequestMessage("last name", "emergency Contact");
+        lastName = scanner.nextLine();
+        printRequestMessage("phone number", "emergency Contact");
+        System.out.println("Format: (555) 555 5555");
+        phoneNumber = scanner.nextLine();
+        printRequestMessage("email address", "emergency Contact");
+        email = scanner.nextLine();
+        emergencyContactDao.updateEmergencyContact(id, studentId, firstName, lastName, phoneNumber, email);
+
+    }
+
+    private void deleteEmergencyContact() throws SQLException { //Author Ryan Leyva
+        int id;
+        printRequestMessage("id", "emergency Contact");
+        String temp = scanner.nextLine();
+        id= Integer.parseInt(temp);
+        emergencyContactDao.deleteEmergencyContactById(id);
+    }
+
+    private void createGradeLevel() throws SQLException { //Author Ryan Leyva
+        int studentId;
+        int teacherId;
+        int gradeLevel;
+        printRequestMessage("valid student ID", "grade level record");
+        String tempStudentId = scanner.nextLine();
+        studentId= Integer.parseInt(tempStudentId);
+        printRequestMessage("valid teacher ID", "grade level record");
+        String tempTeacherId = scanner.nextLine();
+        teacherId = Integer.parseInt(tempTeacherId);
+        printRequestMessage("the students grade level", "grade level record");
+        String tempGrade = scanner.nextLine();
+        gradeLevel = Integer.parseInt(tempGrade);
+        gradeLevelDao.createGradeLevel(studentId, teacherId, gradeLevel);
+
+    }
+
+    private void readGradeLevel() throws SQLException { //Author Ryan Leyva
+        int id;
+        printRequestMessage("id", "grade level record");
+        String temp = scanner.nextLine();
+        id= Integer.parseInt(temp);
+        GradeLevel gradeLevel = gradeLevelDao.readGradeLevelById(id);
+        System.out.println(gradeLevel.toString());
+    }
+
+    private void updateGradeLevel() throws SQLException { //Author Ryan Leyva
+        int id;
+        printRequestMessage("id", "grade level to update");
+        String temp = scanner.nextLine();
+        id= Integer.parseInt(temp);
+        GradeLevel gradeLevelObj = gradeLevelDao.readGradeLevelById(id);
+        System.out.println("Current values:");
+        System.out.println(gradeLevelObj.toString());
+        int studentId;
+        int teacherId;
+        int gradeLevel;
+        printRequestMessage("valid student ID", "grade level record");
+        String tempStudentId = scanner.nextLine();
+        studentId= Integer.parseInt(tempStudentId);
+        printRequestMessage("valid teacher ID", "grade level record");
+        String tempTeacherId = scanner.nextLine();
+        teacherId = Integer.parseInt(tempTeacherId);
+        printRequestMessage("the students grade level", "grade level record");
+        String tempGrade = scanner.nextLine();
+        gradeLevel = Integer.parseInt(tempGrade);
+        gradeLevelDao.updateGradeLevelById(id, studentId, teacherId, gradeLevel);
+    }
+
+    private void deleteGradeLevel() throws SQLException { //Author Ryan Leyva
+        int id;
+        printRequestMessage("id", "grade level record");
+        String temp = scanner.nextLine();
+        id= Integer.parseInt(temp);
+        gradeLevelDao.deleteGradeLevelById(id);
+
     }
 
 
@@ -482,3 +671,4 @@ public class Menu {
 
 }
 
+ 
