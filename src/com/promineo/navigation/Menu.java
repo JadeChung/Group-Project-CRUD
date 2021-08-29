@@ -2,18 +2,22 @@ package com.promineo.navigation;
 
 
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 
 import com.promineo.dao.*;
 import com.promineo.entity.EmergencyContact;
 import com.promineo.entity.GradeLevel;
 
-import java.sql.SQLException;
 import java.util.Scanner;
+
+
+import com.promineo.dao.JobTitleDao;
+import com.promineo.dao.StudentDao;
+import com.promineo.dao.TeacherDao;
 
 import com.promineo.entity.JobTitle;
 import com.promineo.entity.Student;
+import com.promineo.entity.Teacher;
 
 public class Menu {
 
@@ -482,7 +486,7 @@ public class Menu {
         System.out.println("Successfully Deleted");
     }
 
-    private void createTeacher() throws SQLException {
+    private void createTeacher() throws SQLException { //Author Ryan Leyva
         this.printRequestMessage("first name", "teacher");
         String firstName = scanner.nextLine();
         this.printRequestMessage("last name", "teacher");
@@ -492,15 +496,32 @@ public class Menu {
         teacherDao.createTeacher(firstName, lastName, roomNumber);
     }
 
-    private void readTeacher(){
-        //TODO
+    private void readTeacher() throws SQLException{//Author Nathan Moore
+        System.out.println("Enter the Teacher ID: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        Teacher teacher = teacherDao.readTeacherByTeacherId(id);
+        System.out.println("Teacher ID: " + teacher.getTeacherId() + " First Name: " + teacher.getFirstName() + " Last Name: " 
+        + teacher.getLastName() + " Room Number: " + teacher.getRoomNumber());
+        
+        
     }
 
-    private void updateTeacher(){
-
+    private void updateTeacher() throws SQLException {//Author Ryan Leyva
+        System.out.println("Enter the Teacher ID: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        Teacher teacher = teacherDao.readTeacherByTeacherId(id);
+        System.out.println("Current values: Teacher ID: " + teacher.getTeacherId() + " First Name: " + teacher.getFirstName() + " Last Name: "
+                + teacher.getLastName() + " Room Number: " + teacher.getRoomNumber());
+        this.printRequestMessage("first name", "teacher");
+        String firstName = scanner.nextLine();
+        this.printRequestMessage("last name", "teacher");
+        String lastName = scanner.nextLine();
+        this.printRequestMessage("room number", "teacher");
+        String roomNumber = scanner.nextLine();
+        teacherDao.updateTeacher(id, firstName, lastName, roomNumber);
     }
 
-    private void printRequestMessage(String var, String obj){
+    private void printRequestMessage(String var, String obj){//Author Ryan Leyva
         System.out.println("Enter the " + var + " of the "+ obj +":");
     }
 
